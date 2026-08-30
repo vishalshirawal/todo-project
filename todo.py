@@ -55,8 +55,11 @@ while True:
     elif choice == "5":
         task_number = int(input("Enter task number to mark as complete: "))
         if 1 <= task_number <= len(tasks):
-            tasks[task_number - 1] = f"[X] {tasks[task_number - 1]}"
-            print("Task marked as complete!")
+            if tasks[task_number - 1].startswith("[X] "):
+                print("Task is already completed!")
+            else:
+                tasks[task_number - 1] = f"[X] {tasks[task_number - 1]}"
+                print("Task marked as complete!")
         else:
             print("Invalid task number.")
 
