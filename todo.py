@@ -6,7 +6,8 @@ while True:
     print("2. View Tasks")
     print("3. Delete Task")
     print("4. Search Task")
-    print("5. Exit")
+    print("5. complete Task")
+    print("6. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -50,6 +51,14 @@ while True:
             print("No matching tasks found.")
 
     elif choice == "5":
+        task_number = int(input("Enter task number to mark as complete: "))
+        if 1 <= task_number <= len(tasks):
+            tasks[task_number - 1] = f"[X] {tasks[task_number - 1]}"
+            print("Task marked as complete!")
+        else:
+            print("Invalid task number.")
+
+    elif choice == "6":
         print("Goodbye!")
         break
 
