@@ -7,7 +7,8 @@ while True:
     print("3. Delete Task")
     print("4. Search Task")
     print("5. complete Task")
-    print("6. Exit")
+    print("6. edit Task")
+    print("7. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -59,6 +60,15 @@ while True:
             print("Invalid task number.")
 
     elif choice == "6":
+        task_number = int(input("Enter task number to edit: "))
+        if 1 <= task_number <= len(tasks):
+            new_task = input("Enter the updated task: ")
+            tasks[task_number - 1] = new_task
+            print("Task updated successfully!")
+        else:
+            print("Invalid task number.")
+
+    elif choice == "7":
         print("Goodbye!")
         break
 
