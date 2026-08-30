@@ -8,7 +8,8 @@ while True:
     print("4. Search Task")
     print("5. complete Task")
     print("6. edit Task")
-    print("7. Exit")
+    print("7. task priority")
+    print("8. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -67,8 +68,16 @@ while True:
             print("Task updated successfully!")
         else:
             print("Invalid task number.")
-
     elif choice == "7":
+        task_number = int(input("Enter task number to set priority: "))
+        if 1 <= task_number <= len(tasks):
+            priority = input("Enter priority (High/Medium/Low): ")
+            tasks[task_number - 1] = f"[{priority}] {tasks[task_number - 1]}"
+            print("Task priority set successfully!")
+        else:
+            print("Invalid task number.")
+
+    elif choice == "8":
         print("Goodbye!")
         break
 
