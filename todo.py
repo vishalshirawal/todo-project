@@ -9,7 +9,8 @@ while True:
     print("5. complete Task")
     print("6. edit Task")
     print("7. task priority")
-    print("8. Exit")
+    print("8. undo complete Task")
+    print("9. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -81,6 +82,17 @@ while True:
             print("Invalid task number.")
 
     elif choice == "8":
+        task_number = int(input("Enter task number to undo completion: "))
+        if 1 <= task_number <= len(tasks):
+            if tasks[task_number - 1].startswith("[X] "):
+                tasks[task_number - 1] = tasks[task_number - 1][4:]  # Remove "[X] " prefix
+                print("Task marked as incomplete!")
+            else:
+                print("Task is not completed.")
+        else:
+            print("Invalid task number.")
+
+    elif choice == "9":
         print("Goodbye!")
         break
 
