@@ -5,7 +5,8 @@ while True:
     print("1. Add Task")
     print("2. View Tasks")
     print("3. Delete Task")
-    print("4. Exit")
+    print("4. Search Task")
+    print("5. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -37,8 +38,18 @@ while True:
                 print(f"Deleted: {deleted_task}")
             else:
                 print("Invalid task number.")
-
     elif choice == "4":
+        search_term = input("Enter task to search: ")
+        found_tasks = [task for task in tasks if search_term.lower() in task.lower()]
+
+        if found_tasks:
+            print("\nFound Tasks:")
+            for index, task in enumerate(found_tasks, start=1):
+                print(f"{index}. {task}")
+        else:
+            print("No matching tasks found.")
+
+    elif choice == "5":
         print("Goodbye!")
         break
 
